@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+}
+
+h1 {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+#display {
+  background-color: rgb(4, 97, 22);
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2px;
+  padding: 10px;
+}
+
+.dis {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  border: solid 2px black;
+  justify-content: center;
+}
+
+.r {
+  display: flex;
+  justify-content: space-evenly;
+  height: 40px;
+  padding: 1px;
+  margin: 1px;
+}
+
+button {
+  width: 50px;
+}

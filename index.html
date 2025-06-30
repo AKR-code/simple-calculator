@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+
+  <div id="display">
+    <div class="dis" id="input1">input 1</div>
+    <div class="dis" id="operator">operator</div>
+    <div class="dis" id="input2">input 2</div>
+    <div class="dis" id="output">ouput</div><br>
+    AKR innovations
+  </div>
+  
+  <div class="r">
+    <button onclick="rewrite('+')">+</button>
+    <button onclick="rewrite('-')">-</button>
+    <button onclick="rewrite('*')">*</button>
+    <button onclick="rewrite('/')">/</button>
+  </div>
+
+  <div class="r">
+    <button onclick="btn('1')">1</button>
+    <button onclick="btn('2')">2</button>
+    <button onclick="btn('3')">3</button>
+  </div>
+
+   <div class="r">
+    <button onclick="btn('4')">4</button>
+    <button onclick="btn('5')">5</button>
+    <button onclick="btn('6')">6</button>
+  </div>
+
+   <div class="r">
+    <button onclick="btn('7')">7</button>
+    <button onclick="btn('8')">8</button>
+    <button onclick="btn('9')">9</button>
+  </div>
+
+   <div class="r">
+    <button onclick="gateWay(true)">input 1</button>
+    <button onclick="btn('0')">0</button>
+    <button onclick="gateWay(false)">input 2</button>
+  </div>
+
+  <div class="r">
+    <button onclick="result()">enter</button>
+    <button onclick="end()">end</button>
+  </div>
+
+  <script>
+
+    let inputString = '';
+    function btn(parameter) {
+      inputString += parameter;
+      console.log(inputString);
+    }
+
+    let symbolMemory;
+    function rewrite(symbol) {
+      symbolMemory = symbol;
+      document.getElementById("operator").innerHTML = symbol;
+      console.log(symbolMemory);
+    }
+
+    let gateValue;
+    let input1Value = '';
+    let input2Value = '';
+    function gateWay(parameter) {
+      gateValue = parameter;
+      if (parameter === true) {
+        input1Value = inputString;
+        document.getElementById("input1").innerHTML = input1Value;
+        inputString = '';
+      } else {
+        input2Value = inputString;
+        document.getElementById("input2").innerHTML = input2Value;
+        inputString = '';
+      }
+      console.log(gateValue);
+    }
+
+    let output;
+    function result() {
+      let num1 = Number(input1Value);
+      let num2 = Number(input2Value);
+      let output;
+      switch(symbolMemory) {
+        case '+':
+          output = num1 + num2;
+          break;
+        case '-':
+          output = num1 - num2;
+          break;
+        case '*':
+          output = num1 * num2;
+          break;
+        case '/':
+          output = num1 / num2;
+          break;
+        default:
+          output = 'invalid operator';
+      }
+      document.getElementById("output").innerHTML = output;
+      console.log(output);
+    }
+
+    function end() {
+      document.getElementById("input1").innerHTML = 'input 1';
+      document.getElementById("operator").innerHTML = 'operator';
+      document.getElementById("input2").innerHTML = 'input 2';
+      document.getElementById("output").innerHTML = 'output';
+      inputString = '';
+    }
+
+  </script>
+
+</body>
+</html>
